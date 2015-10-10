@@ -5,23 +5,38 @@
  *a SuperClass for all other Vehicle subClasses 
  *@version 0.2 - Added Vehicle Class
  */
-public class Vehicle 
+public abstract class Vehicle 
 {
 	//INSTANCE VARIABLES - PROPERTIES++++++++++++++++++++++++++++++++
-	private int numWheels = 4; //the number of wheels in a vehicle
-	private int numDoors = 2; //the minimum number of doors in a vehicle
+	protected int numWheels = 4; //the number of wheels in a vehicle
+	protected int numDoors = 2; //the minimum number of doors in a vehicle
 	private String color = "";  //vehicle color
 	private String make = "";
 	private String model = "";
 	private String year = "";
-	private double speed = 0;
-	private final double MAX_SPEED = 40; //max speed is 40 Meters/Sec
+	protected double speed = 0;
+	protected final double MAX_SPEED = 40; //max speed is 40 Meters/Sec
 	
-	//CONSTRUCTOR++++++++++++++++++++++++++++++++++++++++++++++++++
-	public Vehicle()
+	//CONSTRUCTORS++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	public Vehicle(int wheels , int doors , String color , String make , String model , String year)
 	{
-		
+		this.numWheels = wheels;
+		this.numDoors = doors;
+		this.color = color;
+		this.make = make;
+		this.model = model;
+		this.year = year;
 	}
+	
+	public Vehicle(String color , String make , String model , String year)
+	{
+		this.color = color;
+		this.make = make;
+		this.model = model;
+		this.year = year;
+	}
+	
 	//GET ACCESSOR METHODS+++++++++++++++++++++++++++++++++++++++++++++++++++++
 	public int getNumWheels()
 	{
@@ -65,24 +80,12 @@ public class Vehicle
 		return this.MAX_SPEED;
 	}
 	
-	//PUBLIC METHODS+++++++++++++++++++++++++++++++++++++++++++++++
-	public void accelerate()
-	{
-		this.speed +=4; //car accelerates 4 meters per second^2
-		if(this.speed >= this.MAX_SPEED)
-		{
-			this.speed = MAX_SPEED;
-		}
-			
-	}
+	//PUBLIC ABSTRACT METHODS+++++++++++++++++++++++++++++++++++++++++++++++
+	//MUST BE OVERRIDEN
+	public abstract void accelerate();
 	
-	public void decelerate()
-	{
-		this.speed -=6;
-		if(this.speed < 0) //so we cant go backwards
-			this.speed = 0;
-	}
-	
+	public abstract void decelerate();
+	//PUBLIC MEHTODS+++++++++++++++++++++++++++++++++++++++++++++++++
 	public void turnLeft()
 	{
 		System.out.println("Turning Left");
