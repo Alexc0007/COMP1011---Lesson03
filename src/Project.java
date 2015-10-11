@@ -38,5 +38,5 @@ public class Project {
 	}
 
 	
-	//stopped at Lesson 3 part 3 - 45 minutes
+	//stopped at end of Lesson 3 part 3
 }

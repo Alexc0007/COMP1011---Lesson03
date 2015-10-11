@@ -21,7 +21,6 @@ public class SportsUtilityVehicle extends Vehicle {
 	{
 		super(color, make, model, year);
 		this.numDoors = 5;
-		
 	}
 
 	//OVERRIDEN METHODS+++++++++++++++++++++++++++++++++++++++++++++++
@@ -31,7 +30,6 @@ public class SportsUtilityVehicle extends Vehicle {
 		this.speed +=4;
 		if(this.speed >= this.MAX_SPEED)
 			this.speed = this.MAX_SPEED;
-		
 	}
 
 	
@@ -41,7 +39,6 @@ public class SportsUtilityVehicle extends Vehicle {
 		this.speed -=6;
 		if(this.speed < 0) //so we cant go backwards
 			this.speed = 0;
-
 	}
 
 }
